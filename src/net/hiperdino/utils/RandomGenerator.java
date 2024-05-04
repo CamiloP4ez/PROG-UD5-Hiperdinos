@@ -6,8 +6,8 @@ import net.hiperdino.products.Product;
 
 public class RandomGenerator {
     final static Random R = new Random();
-    private static int count = 0;
-    private static String[] names = {
+    // private static int count = 0;
+    private final static String[] NAMES = {
             "Ana",
             "Juan",
             "María",
@@ -40,29 +40,29 @@ public class RandomGenerator {
             "Elena"
     };
 
-    private static String[] productNames = {
-            "Jabón (Higiene)",
-            "Champú (Higiene)",
-            "Pasta de dientes (Higiene)",
-            "Papel higiénico (Higiene)",
-            "Toallas de papel (Higiene)",
-            "Detergente (Hogar)",
-            "Suavizante (Hogar)",
-            "Esponja (Hogar)",
-            "Bolsas de basura (Hogar)",
-            "Limpiador multiusos (Hogar)",
-            "Leche (Alimento)",
-            "Pan (Alimento)",
-            "Huevos (Alimento)",
-            "Fruta (Alimento)",
-            "Verdura (Alimento)",
-            "Carne (Alimento)",
-            "Pescado (Alimento)",
-            "Arroz (Alimento)",
-            "Pasta (Alimento)",
-            "Legumbres (Alimento)"
-    };
-    private static Product[] products = {
+    // private static String[] productNames = {
+    // "Jabón (Higiene)",
+    // "Champú (Higiene)",
+    // "Pasta de dientes (Higiene)",
+    // "Papel higiénico (Higiene)",
+    // "Toallas de papel (Higiene)",
+    // "Detergente (Hogar)",
+    // "Suavizante (Hogar)",
+    // "Esponja (Hogar)",
+    // "Bolsas de basura (Hogar)",
+    // "Limpiador multiusos (Hogar)",
+    // "Leche (Alimento)",
+    // "Pan (Alimento)",
+    // "Huevos (Alimento)",
+    // "Fruta (Alimento)",
+    // "Verdura (Alimento)",
+    // "Carne (Alimento)",
+    // "Pescado (Alimento)",
+    // "Arroz (Alimento)",
+    // "Pasta (Alimento)",
+    // "Legumbres (Alimento)"
+    // };
+    private final static Product[] PRODUCTS = {
             new Product("jabon", 5.4f, 1),
             new Product("champu", 3.4f, 2),
             new Product("Pasta de dientes", 2.4f, 3),
@@ -93,12 +93,12 @@ public class RandomGenerator {
 
     public static Product productGenerator() {
         int randomIndex = generateRandom();
-        return products[randomIndex];
+        return PRODUCTS[randomIndex];
     }
 
     public static String nameGenerator() {
         int randomIndex = generateRandom();
-        return names[randomIndex];
+        return NAMES[randomIndex];
     }
 
 }
