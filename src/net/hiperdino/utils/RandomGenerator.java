@@ -91,12 +91,14 @@ public class RandomGenerator {
         return random;
     }
 
-    public static Product productGenerator(int i) {
-        return products[i];
+    public static Product productGenerator() {
+        int randomIndex = generateRandom();
+        return products[randomIndex];
     }
 
-    public static String nameGenerator(int i) {
-        return names[i];
+    public static String nameGenerator() {
+        int randomIndex = generateRandom();
+        return names[randomIndex];
     }
 
 }
