@@ -1,12 +1,15 @@
 package net.hiperdino.utils;
 
 import java.util.Random;
+import java.util.Stack;
 
+import net.hiperdino.client.Client;
 import net.hiperdino.products.Product;
 
 public class RandomGenerator {
     final static Random R = new Random();
-    // private static int count = 0;
+    private static int count = 0;
+
     private final static String[] NAMES = {
             "Ana",
             "Juan",
@@ -99,6 +102,22 @@ public class RandomGenerator {
     public static String nameGenerator() {
         int randomIndex = generateRandom();
         return NAMES[randomIndex];
+    }
+
+    public static Stack<Product> shopsGenerator() {
+        Stack<Product> shopCart = new Stack<>();
+        for (int i = 0; i < generateRandom(); i++) {
+            shopCart.push(productGenerator());
+        }
+
+        return shopCart;
+    }
+
+    public static Client generateClient() {
+        Client client = new Client(count, nameGenerator(), shopsGenerator());
+        count++;
+
+        return client;
     }
 
 }
