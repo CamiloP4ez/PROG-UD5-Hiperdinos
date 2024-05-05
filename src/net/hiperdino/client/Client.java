@@ -48,8 +48,24 @@ public class Client {
         this.shopCart = shopCart;
     }
 
+    public float calculateInvoice() {
+        float total = 0f;
+        for (int i = 0; i < shopCart.size(); i++) {
+            total += shopCart.pop().getPrice();
+
+        }
+        return total;
+    }
+
     @Override
     public String toString() {
+        // String clientes = "";
+
+        // for (int i = 0; i < shopCart.size(); i++) {
+        // total += shopCart.pop().getPrice();
+
+        // }
+
         return """
                 ====================================
                 Nombre: %s
