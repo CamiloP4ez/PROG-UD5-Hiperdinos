@@ -1,5 +1,6 @@
 package net.hiperdino.cashier;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -9,11 +10,12 @@ public class Cashier {
     private int caashierNumber;
     private String name;
     private Queue<Client> clients = new LinkedList<>();
+    private Boolean isOpen = false;
 
-    public Cashier(int caashierNumber, String name, Queue<Client> clients) {
+    public Cashier(int caashierNumber, String name) {
         this.caashierNumber = caashierNumber;
         this.name = name;
-        this.clients = clients;
+        // this.clients = clients;
     }
 
     public int getCaashierNumber() {
@@ -40,9 +42,65 @@ public class Cashier {
         this.clients = clients;
     }
 
+    public Boolean getIsOpen() {
+        return isOpen;
+    }
+
+    public void setIsOpen(Boolean isOpen) {
+        this.isOpen = isOpen;
+        System.out.println("La caja esta abierta");
+    }
+
+    public void addClient(Client client) {
+        if (isOpen) {
+            clients.add(client);
+            System.out.println("Cliente añadido");
+        } else {
+            System.out.println("caja cerrada");
+        }
+    }
+
+    public void serveCustomer() {
+        if (clients.isEmpty()) {
+            System.out.println("no quedan clientes por atender\n");
+
+        } else {
+
+            Client client = clients.poll();
+
+            System.out
+                    .println(
+                            "atendiendo a: \n" + client.toString() + " el total es: " + client.calculateInvoice()
+                                    + " euros\n");
+
+        }
+    }
+
+    public String getClientsNames() {
+        String names = "";
+        ArrayList<Client> nameClients = new ArrayList<>(clients);
+        for (Client client : nameClients) {
+            names += "\t" + client.getName() + " \n";
+
+        }
+        return names;
+    }
+
+    public Boolean isEmpty() {
+        if (clients.isEmpty()) {
+            return true;
+
+        } else {
+            return false;
+        }
+    }
+
     @Override
     public String toString() {
-        return "Cashier [caashierNumber=" + caashierNumber + ", name=" + name + ", clients=" + clients + "]";
+        return "===========================================" + "\nCajero numero: " + caashierNumber + "\nnombre: "
+                + name + "\nclientes:\n" +
+                getClientsNames() +
+                "\n ===========================================";
     }
 
 }
