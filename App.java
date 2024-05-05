@@ -6,7 +6,6 @@ import net.hiperdino.utils.RandomGenerator;
 
 public class App {
     public static void main(String[] args) {
-        // System.out.println(Menu.printMenu());
         Scanner kb = new Scanner(System.in);
         Boolean keepAsking = true;
         int option = 0;

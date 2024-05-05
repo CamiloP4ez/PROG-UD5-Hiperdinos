@@ -1,6 +1,5 @@
 package net.hiperdino.client;
 
-// import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -9,7 +8,6 @@ import net.hiperdino.products.Product;
 public class Client {
     private int id;
     private String name;
-
     Stack<Product> shopCart = new Stack<>();
 
     public Client(int id, String name, Stack<Product> shopCart) {
@@ -37,7 +35,6 @@ public class Client {
     public String getShopCart() {
         String shopItems = "";
         ArrayList<Product> arrayList = new ArrayList<>(shopCart);
-        // String[] array = shopCart.toArray(new String[shopCart.size()]);
         for (Product product : arrayList) {
             shopItems += "\t" + product.getName() + "\n";
         }
@@ -59,12 +56,6 @@ public class Client {
 
     @Override
     public String toString() {
-        // String clientes = "";
-
-        // for (int i = 0; i < shopCart.size(); i++) {
-        // total += shopCart.pop().getPrice();
-
-        // }
 
         return """
                 ====================================

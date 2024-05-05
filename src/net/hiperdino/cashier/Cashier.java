@@ -15,7 +15,6 @@ public class Cashier {
     public Cashier(int caashierNumber, String name) {
         this.caashierNumber = caashierNumber;
         this.name = name;
-        // this.clients = clients;
     }
 
     public int getCaashierNumber() {
