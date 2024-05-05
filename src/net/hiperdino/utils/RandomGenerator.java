@@ -90,7 +90,7 @@ public class RandomGenerator {
 
     public static int generateRandom() {
 
-        int random = R.nextInt(20) + 1;
+        int random = R.nextInt(20);
         return random;
     }
 

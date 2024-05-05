@@ -1,5 +1,7 @@
 package net.hiperdino.client;
 
+// import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Stack;
 
 import net.hiperdino.products.Product;
@@ -32,8 +34,14 @@ public class Client {
         this.name = name;
     }
 
-    public Stack<Product> getShopCart() {
-        return shopCart;
+    public String getShopCart() {
+        String shopItems = "";
+        ArrayList<Product> arrayList = new ArrayList<>(shopCart);
+        // String[] array = shopCart.toArray(new String[shopCart.size()]);
+        for (Product product : arrayList) {
+            shopItems += "\t" + product.getName() + "\n";
+        }
+        return shopItems;
     }
 
     public void setShopCart(Stack<Product> shopCart) {
@@ -42,7 +50,13 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client [id=" + id + ", name=" + name + ", shopCart=" + shopCart + "]";
+        return """
+                ====================================
+                Nombre: %s
+                Id: %d
+                Cesta:
+                %s====================================
+                """.formatted(name, id, getShopCart());
     }
 
 }
